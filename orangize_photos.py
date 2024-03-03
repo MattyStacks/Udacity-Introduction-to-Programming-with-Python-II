@@ -23,3 +23,26 @@ os.chdir("Photos")
 originals = os.listdir()
 
 print(originals)
+places = []
+# def extract_place(filename):
+#     first_occurance = filename.find("_")
+#     remaining_string = filename[first_occurance+1:]
+#     second_occurance = remaining_string.find("_")
+#     extracted_place = remaining_string[:second_occurance]
+    
+#     return extracted_place
+
+def extract_place(filename):
+    split_filename = filename.split("_")
+    extracted_place = split_filename[1]
+    #SHORTHAND return filename.split("_")[1]
+    return extracted_place
+
+for file in originals:
+    places.append(extract_place(file))
+
+print(places)
+
+# print(extract_place("2016-11-04_Berlin_09/42/22.jpg"))
+# print(extract_place("2018-01-03_Oahu_21/51/57.jpg"))
+# print(extract_place("2018-01_Scottland_11/51/27.jpg"))
