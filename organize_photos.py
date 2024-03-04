@@ -17,15 +17,18 @@ Create a directory named path with numeric mode mode.
 
 '''
 
+
 def extract_place(filename):
     split_filename = filename.split("_")
     extracted_place = split_filename[1]
-    #SHORTHAND return filename.split("_")[1]
+    # SHORTHAND return filename.split("_")[1]
     return extracted_place
+
 
 def make_place_directories(places):
     for place in places:
         os.mkdir(place)
+
 
 def organize_photos(directory):
     # 1. Get a list of the file names
@@ -33,7 +36,7 @@ def organize_photos(directory):
     originals = os.listdir()
 
     print(originals)
-    places = []  
+    places = []
 
     for file in originals:
         place = extract_place(file)
@@ -51,6 +54,7 @@ def organize_photos(directory):
     for file in originals:
         place = extract_place(file)
         os.rename(file, os.path.join(place, file))
+
 
 if __name__ == '__main__':
     organize_photos("Photos")
